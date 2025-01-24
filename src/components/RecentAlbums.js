@@ -29,18 +29,23 @@ const RecentAlbums = () => {
 
     return (
         <div style={{ padding: "20px", marginTop: "5px", marginBottom: "20px" }}>
-            <h2>Recently Viewed Albums</h2>
-            <Row gutter={[16, 16]}>
-                {recentAlbums.map((item, index) => (
-                    <Col key={index} xs={24} sm={12} md={8} lg={4}>
-                        <StyledCard hoverable>
-                            <h4>Album {item.album.id}</h4>
-                            <p> {item.album.title}</p>
-                        </StyledCard>
-                    </Col>
-                ))}
-            </Row>
+            {recentAlbums.length > 0 && (
+                <>
+                    <h2>Recently Viewed Albums</h2>
+                    <Row gutter={[16, 16]}>
+                        {recentAlbums.map((item, index) => (
+                            <Col key={index} xs={24} sm={12} md={8} lg={4}>
+                                <StyledCard hoverable>
+                                    <h4>Album {item.album.id}</h4>
+                                    <p>{item.album.title}</p>
+                                </StyledCard>
+                            </Col>
+                        ))}
+                    </Row>
+                </>
+            )}
         </div>
+
     );
 };
 
